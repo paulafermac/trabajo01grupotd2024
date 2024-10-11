@@ -316,7 +316,7 @@ dibuja.criterio.Hurwicz(tb4)
 
 ```
 
-La mejor opción es la A (d1) por todos los criterios (ropa básica), ya que es más estable en el escenario desfavorable y proporciona una mayor ganancia en el escenario favorable. Asegura un beneficio en ambas situaciones que puedan surgir.
+La mejor opción es la A (d1) por todos los criterios (ropa básica), ya que es más estable en el escenario desfavorable y proporciona una mayor ganancia en el escenario favorable. Asegura un beneficio en ambas situaciones que puedan surgir..
  
 
 

@@ -15,7 +15,7 @@ La empresa no sabe cuál de tres posibles estados del mercado ocurrirá: Estado 
 
 La siguiente tabla de decisión resume las ganancias o pérdidas estimadas (en miles de dólares) de cada proyecto en cada uno de los estados del mercado:
 ```{r}
-source("teoriadecision_funciones_incertidumbre.R")
+
 tb1 = crea.tablaX(c(100, 150, -50,
                   80, 200, 100,
                   50, -100, 250), numalternativas = 3, numestados = 3)
