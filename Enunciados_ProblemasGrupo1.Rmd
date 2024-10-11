@@ -33,3 +33,46 @@ La empresa no está segura de cómo reaccionará el mercado y tiene dos posibles
 La empresa quiere tomar una decisión entre vender los derechos o lanzar el software por su cuenta, pero no sabe qué escenario del mercado ocurrirá.
 
 ¿Debe la empresa aceptar la oferta de vender los derechos del software o lanzarlo por su cuenta? 
+
+
+# FEDERICA RUBINO
+
+Problema 1: Decisión de Expansión para una Empresa de Alimentos
+Una empresa de alimentos está considerando expandir su línea de productos. Tiene tres opciones A, B, C.
+
+La empresa enfrenta tres posibles escenarios de mercado:
+
+Escenario 1: Alta demanda de productos saludables.
+Escenario 2: El mercado se mantiene estable.
+Escenario 3: Baja demanda de nuevos productos.
+La empresa ha estimado las ganancias o pérdidas (en miles de euros) para cada opción en los tres escenarios:
+
+```{r}
+source("teoriadecision_funciones_incertidumbre.R")
+
+tb2 = crea.tablaX(c(150, 300, 100, 
+                    100, 200, 250, 
+                    -50, 80, -100), numalternativas = 3, numestados = 3)
+```
+La empresa debe elegir una opción de expansión, pero no sabe con certeza cuál de los tres escenarios ocurrirá.
+
+Problema 2: Escenario real de decisión para una tienda de ropa
+
+Una tienda de ropa está considerando expandir su línea de productos para aumentar las ventas. Tiene dos opciones:
+
+Opción A: Ampliar la línea de ropa básica con una inversión de 10,000 euros.
+Opción B: Introducir una línea de ropa premium, lo cual requiere una inversión mayor de 30,000 euros.
+
+La tienda enfrenta dos posibles escenarios en relación con la demanda de ropa:
+Escenario Favorable: Aumento en la demanda de ropa, generando ingresos adicionales de 50,000 euros.
+Escenario Desfavorable: La demanda de ropa se mantiene estable, generando ingresos adicionales de solo 15,000 euros.
+La tienda debe decidir entre expandir con una inversión básica o arriesgarse con la línea premium, sin saber con certeza cómo será la demanda en los próximos años.
+
+
+
+
+
+
+
+
+

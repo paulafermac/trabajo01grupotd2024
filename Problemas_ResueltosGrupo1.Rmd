@@ -158,3 +158,166 @@ dibuja.criterio.Hurwicz(tb2)
 La mejor opción es VENDER los derechos del software.
 Esta opción es la favorable en todos los criterios menos en el criterio óptimo; 
 ya que ofrece seguridad y evita pérdidas potenciales en caso de fracaso en ventas.
+
+
+# FEDERICA RUBINO
+
+```{r}
+## Primer Problema: Decisión de Expansión para una Empresa de Alimentos
+
+source("teoriadecision_funciones_incertidumbre.R")
+
+# Crear la tabla de decisión con los datos del problema
+tb4 = crea.tablaX(c(150000, 300000, 100000,  # Proyecto A
+                    100000, 200000, 250000,  # Proyecto B
+                    -50000, 80000, -100000), # Proyecto C
+                  numalternativas = 3, numestados = 3)
+
+# Mostrar la tabla de decisión
+print("Tabla de Decisión para la Empresa de Tecnología:")
+tb4
+
+
+```
+Evaluación por Métodos de Decisión (Situaciones Favorables y Desfavorables)
+
+
+Criterio de Wald (Pesimista):
+
+```{r}
+## Situación Favorable:
+  
+wald_result_favorable = criterio.Wald(tb1, favorable = TRUE)
+print("Resultado según el Criterio de Wald (Favorable):")
+wald_result_favorable$AlternativaOptima
+
+```
+
+```{r}
+## Situación Desfavorable:
+
+wald_result_desfavorable = criterio.Wald(tb1, favorable = FALSE)
+print("Resultado según el Criterio de Wald (Desfavorable):")
+wald_result_desfavorable$AlternativaOptima
+```
+
+Criterio Optimista:
+
+```{r}
+## Situación Favorable:
+
+opt_result_favorable = criterio.Optimista(tb1, favorable = TRUE)
+print("Resultado según el Criterio Optimista (Favorable):")
+opt_result_favorable$AlternativaOptima
+```
+
+```{r}
+## Situación Desfavorable:
+
+opt_result_desfavorable = criterio.Optimista(tb1, favorable = FALSE)
+print("Resultado según el Criterio Optimista (Desfavorable):")
+opt_result_desfavorable$AlternativaOptima
+```
+
+Criterio de Hurwicz (Ponderación 60%)
+Usamos un coeficiente alfa de 0.7.
+
+```{r}
+## Situación Favorable:
+
+hurwicz_result_favorable = criterio.Hurwicz(tb1, alfa = 0.7, favorable = TRUE)
+print("Resultado según el Criterio de Hurwicz (Favorable):")
+hurwicz_result_favorable$AlternativaOptima
+```
+
+```{r}
+## Situación Desfavorable:
+
+hurwicz_result_desfavorable = criterio.Hurwicz(tb1, alfa = 0.7, favorable = FALSE)
+print("Resultado según el Criterio de Hurwicz (Desfavorable):")
+hurwicz_result_desfavorable$AlternativaOptima
+```
+
+Criterio de Laplace:
+
+```{r}
+## Situación Favorable:
+
+laplace_result_favorable = criterio.Laplace(tb1, favorable = TRUE)
+print("Resultado según el Criterio de Laplace (Favorable):")
+laplace_result_favorable$AlternativaOptima
+```
+
+```{r}
+## Situación Desfavorable:
+
+laplace_result_desfavorable = criterio.Laplace(tb1, favorable = FALSE)
+print("Resultado según el Criterio de Laplace (Desfavorable):")
+laplace_result_desfavorable$AlternativaOptima
+```
+
+Criterio de Savage (Minimización del Arrepentimiento)
+
+```{r}
+## Situación Favorable:
+
+savage_result_favorable = criterio.Savage(tb1, favorable = TRUE)
+print("Resultado según el Criterio de Savage (Favorable):")
+savage_result_favorable$AlternativaOptima
+```
+
+```{r}
+##Situación Desfavorable:
+
+savage_result_desfavorable = criterio.Savage(tb1, favorable = FALSE)
+print("Resultado según el Criterio de Savage (Desfavorable):")
+savage_result_desfavorable$AlternativaOptima
+```
+
+Frente a lo que se desprende de cada método utilizado, la opción A es la mejor para cada uno de ellos en el caso de una situación favorable, mientras que en el caso de una situación desfavorable la mejor opción es la C.
+
+
+
+Problema 2: escenario real. 
+
+Vamos a calcular las ganancias netas restando las inversiones de los ingresos esperados en cada escenario:
+
+Para la Opción A (ropa básica):
+Escenario Favorable: 50,000 - 10,000 = 40,000 euros
+Escenario Desfavorable: 15,000 - 10,000 = 5,000 euros
+Para la Opción B (ropa premium):
+Escenario Favorable: 50,000 - 30,000 = 20,000 euros
+Escenario Desfavorable: 15,000 - 30,000 = -15,000 euros
+
+Creamos una tabla de decisión basada en los escenarios planteados:
+
+```{r}
+tb4 = crea.tablaX(c(40000, 5000,    # Opción A
+                    20000, -15000),  # Opción B
+                  numalternativas = 2, numestados = 2)
+
+# Mostrar la tabla de decisión
+print("Tabla de Decisión para la Tienda de Ropa:")
+tb4
+
+
+```
+
+```{r}
+# Aplicar todos los métodos a la tabla de decisión
+resultados_tb4 = criterio.Todos(tb4, alfa = 0.5, favorable = TRUE)
+
+# Mostrar los resultados
+print("Resultados aplicando todos los criterios:")
+resultados_tb4
+
+# Graficamente: dibuja el criterio Hurwicz
+dibuja.criterio.Hurwicz(tb4)
+
+```
+
+La mejor opción es la A (d1) por todos los criterios (ropa básica), ya que es más estable en el escenario desfavorable y proporciona una mayor ganancia en el escenario favorable. Asegura un beneficio en ambas situaciones que puedan surgir.
+ 
+
+
+
