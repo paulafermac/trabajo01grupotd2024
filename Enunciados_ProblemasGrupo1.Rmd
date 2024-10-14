@@ -116,7 +116,44 @@ Clara y Pedro no están seguros de cuántos datos usarán al mes, pero considera
 | **Tarifa Media**      | 20 euros (sin datos extra) = **20 euros** | 20 euros + 5GB extra (15 euros) = **35 euros** | 20 euros + 15GB extra (45 euros) = **65 euros** |
 | **Tarifa Ilimitada**  | **35 euros**              | **35 euros**                | **35 euros**                |
 
+# Alicia Cantero Díaz 
 
+#PROBLEMA 1 
+Una empresa que está considerando tres estrategias posibles para expandirse en un nuevo mercado:
+  1.Expandirse agresivamente.
+  2.Expandirse moderadamente.
+  3.No expandirse (mantener el status quo).
+Hay dos escenarios futuros posibles:
+  *Mercado favorable: La demanda es alta.
+  *Mercado desfavorable: La demanda es baja.
+La siguiente tabla de pagos muestra las ganancias (en miles de euros) para cada estrategia dependiendo del estado del mercado:
+```{r}
+pagos_problema1 <- matrix(c(500, -100, 300, 50, 100, 100), 
+                          nrow = 3, byrow = TRUE,
+                          dimnames = list(c("Expandirse agresivamente", 
+                                            "Expandirse moderadamente", 
+                                            "No expandirse"),
+                                          c("Mercado Favorable", 
+                                            "Mercado Desfavorable")))
+```
+PROBLEMA 2
+Un agricultor debe decidir qué cultivo plantar para la próxima temporada. Las opciones son:
+  1.Cultivar trigo.
+  2.Cultivar maíz.
+  3.No cultivar nada.
+Existen dos posibles condiciones climáticas para la temporada:
+  *Lluvias abundantes.
+  *Sequía. 
+Los resultados de las diferentes decisiones (en miles de euros) son los siguientes:
+```{r}
+pagos_problema2 <- matrix(c(200, 50, 150, 80, 0, 0), 
+                          nrow = 3, byrow = TRUE,
+                          dimnames = list(c("Cultivar trigo", 
+                                            "Cultivar maíz", 
+                                            "No cultivar"),
+                                          c("Lluvias Abundantes", 
+                                            "Sequía")))
+```
 
 
 
