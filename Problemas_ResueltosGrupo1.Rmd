@@ -485,5 +485,101 @@ criterio.Todos(tablaY,alfa=0.3,favorable=F)
 
 La solución óptima para cada criterio aparece en la última fila de la tabla resultante
 
+# ALICIA CANTERO DÍAZ 
 
+#PROBLEMA 1 
+#Tabla de decisión 
+```{r}
+pagos_problema1 <- matrix(c(500, -100, 300, 50, 100, 100), 
+                          nrow = 3, byrow = TRUE,
+                          dimnames = list(c("Expandirse agresivamente", 
+                                            "Expandirse moderadamente", 
+                                            "No expandirse"),
+                                          c("Mercado Favorable", 
+                                            "Mercado Desfavorable")))
+pagos_problema1
+```
+## Situación favorable
+# Criterio de Wald o Pesimista 
+```{r}
+criterio.Wald(pagos_problema1,favorable=TRUE) 
+```
+Para este criterio, la mejor alternativa es No expandirse
+# Criterio Optimista
+```{r}
+criterio.Optimista(pagos_problema1,favorable=TRUE)
+```
+Para este criterio, la mejor alternativa es Expandirse agresivamente
+# Criterio Hurwicz
+```{r}
+criterio.Hurwicz(pagos_problema1,alfa=0.3,favorable=TRUE)
+```
+Para este criterio, la mejor alternativa es Expandirse moderadamente
+# Savage
+```{r}
+criterio.Savage(pagos_problema1,favorable=TRUE)
+```
+Para este criterio, la mejor alternativa es Expandirse agresivamente o Expandirse moderadamente 
+# Criterio Laplace
+```{r}
+criterio.Laplace(pagos_problema1,favorable=TRUE)
+```
+Para este criterio, la mejor alternativa es Expandirse agresivamente
+# Criterio punto ideal
+```{r}
+criterio.PuntoIdeal(pagos_problema1,favorable=TRUE)
+```
+Para este criterio, la mejor alternativa es Expandirse agresivamente 
+#conclusion 
+En la situación favorable practicamente cada criterio da una mejor alternativa con lo cual a la hora de elegir dependerá de qué tipo de decisión quieras priorizar. 
+## Situación desfavorable:
+# Criterio de Wald o Pesimista
+```{r}
+criterio.Wald(pagos_problema1,favorable=FALSE) 
+```
+Para este criterio, la mejor alternativa es No expandirse 
+# Criterio Optimista
+```{r}
+criterio.Optimista(pagos_problema1,favorable=FALSE)
+```
+Para este criterio, la mejor alternativa es Expandirse agresivamente
+# Criterio Hurwicz
+```{r}
+criterio.Hurwicz(pagos_problema1,alfa=0.3,favorable=FALSE)
+```
+Para este criterio, la mejor alternativa es No expandirse 
+# Savage
+```{r}
+criterio.Savage(pagos_problema1,favorable=FALSE)
+```
+Para este criterio, la mejor alternativa es Expandirse moderadamente o No expandirse
+# Criterio Laplace
+```{r}
+criterio.Laplace(pagos_problema1,favorable=FALSE)
+```
+Para este criterio, la mejor alternativa es No expandirse 
+# Criterio punto ideal
+```{r}
+criterio.PuntoIdeal(pagos_problema1,favorable=FALSE)
+```
+Para este criterio, la mejor alternativa es No expandirse
+#conclusión 
+En la situación desfavorable, la mejor alternativa es No expandirse ya que practicamente todos los criterios coinciden. 
 
+#PROBLEMA 2 
+#Tabla 
+```{r}
+pagos_problema2 <- matrix(c(200, 50, 150, 80, 0, 0), 
+                          nrow = 3, byrow = TRUE,
+                          dimnames = list(c("Cultivar trigo", 
+                                            "Cultivar maíz", 
+                                            "No cultivar"),
+                                          c("Lluvias Abundantes", 
+                                            "Sequía")))
+pagos_problema2
+```
+```{r}
+criterio.Todos(pagos_problema2,alfa=0.3,favorable=F)
+```
+#Conclusión 
+La elección entre cultivar trigo y maíz depende de la tolerancia al riesgo del agricultor y las expectativas sobre las condiciones climáticas. Si el agricultor se inclina por un enfoque más conservador, podría optar por no cultivar o cultivar maíz. Sin embargo, si está dispuesto a asumir un mayor riesgo para obtener mayores beneficios, cultivar trigo sería la mejor opción, especialmente en un escenario de lluvias abundantes.
