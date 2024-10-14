@@ -118,7 +118,7 @@ Clara y Pedro no están seguros de cuántos datos usarán al mes, pero considera
 
 # Alicia Cantero Díaz 
 
-#PROBLEMA 1 
+PROBLEMA 1 
 Una empresa que está considerando tres estrategias posibles para expandirse en un nuevo mercado:
   1.Expandirse agresivamente.
   2.Expandirse moderadamente.
