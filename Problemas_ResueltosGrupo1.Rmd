@@ -583,3 +583,155 @@ criterio.Todos(pagos_problema2,alfa=0.3,favorable=F)
 ```
 #Conclusión 
 La elección entre cultivar trigo y maíz depende de la tolerancia al riesgo del agricultor y las expectativas sobre las condiciones climáticas. Si el agricultor se inclina por un enfoque más conservador, podría optar por no cultivar o cultivar maíz. Sin embargo, si está dispuesto a asumir un mayor riesgo para obtener mayores beneficios, cultivar trigo sería la mejor opción, especialmente en un escenario de lluvias abundantes.
+
+
+
+# PABLO GONZÁLEZ GÓMEZ
+
+## Problema 1
+
+Aplicar los criterios de decisión bajo incertidumbre al problema cuya matriz de valores numéricos viene dada en la tabla siguiente:
+
+|        | e1  | e2  | e3  |
+|--------|-----|-----|-----|
+| **d1** | 150 | 90  | 30  |
+| **d2** | 200 | 80  | 10  |
+| **d3** | 250 | 100 | -50 |
+
+```{r}
+source("teoriadecision_funciones_incertidumbre.R")
+tb1 = crea.tablaX(c(150,90,30,
+                  200,80,10,
+                  250,100,-50), numalternativas=3, numestados=3)
+tb1
+
+```
+
+### SITUACIÓN FAVORABLE
+
+#### Criterio de Wald o pesimista
+
+```{r}
+(fav_wald=criterio.Wald(tb1,T))
+```
+
+La alternativa óptima es **d1**
+
+#### Criterio optimista
+
+```{r}
+(fav_opt=criterio.Optimista(tb1,T))
+```
+
+La alternativa óptima es **d3**
+
+#### Criterio de Hurwicz (alfa=0.5)
+
+```{r}
+(fav_hur=criterio.Hurwicz(tb1,alfa = 0.5,T))
+```
+
+La alternativa óptima es **d2**
+
+#### Criterio de Savage
+
+```{r}
+(fav_sav=criterio.Savage(tb1,T))
+```
+
+La alternativa óptima es **d2**
+
+#### Criterio de Laplace
+
+```{r}
+(fav_lap=criterio.Laplace(tb1,T))
+```
+
+La alternativa óptima es **d3**
+
+#### Criterio punto ideal
+
+```{r}
+(fav_pi=criterio.PuntoIdeal(tb1,T))
+```
+
+La alternativa óptima es **d2**
+
+### SITUACIÓN DESFAVORABLE
+
+#### Criterio de Wald o pesimista
+
+```{r}
+(des_wald=criterio.Wald(tb1,F))
+```
+
+La alternativa óptima es **d1**
+
+#### Criterio optimista
+
+```{r}
+(des_opt=criterio.Optimista(tb1,F))
+```
+
+La alternativa óptima es **d3**
+
+#### Criterio de Hurwicz (alfa=0.5)
+
+```{r}
+(des_hur=criterio.Hurwicz(tb1,alfa = 0.5,F))
+```
+
+La alternativa óptima es **d1**
+
+#### Criterio de Savage
+
+```{r}
+(des_sav=criterio.Savage(tb1,F))
+```
+
+La alternativa óptima es **d2**
+
+#### Criterio de Laplace
+
+```{r}
+(des_lap=criterio.Laplace(tb1,F))
+```
+
+La alternativa óptima es **d1**
+
+#### Criterio punto ideal
+
+```{r}
+(des_pi=criterio.PuntoIdeal(tb1,F))
+```
+
+La alternativa óptima es **d2**
+
+## Problema 2
+
+Un gerente de ventas debe decidir qué producto lanzar en el próximo trimestre, pero no sabe cómo se comportará el mercado. Tiene tres opciones de producto: producto A, producto B y producto C. Los escenarios de mercado posibles son: alta demanda, demanda moderada y baja demanda. Dependiendo del comportamiento del mercado, los beneficios de cada producto varían.
+
+La siguiente tabla muestra las ganancias esperadas (en miles de euros) en cada escenario de demanda:
+
+|                | Alta demanda | Demanda moderada | Baja demanda |
+|----------------|--------------|------------------|--------------|
+| **Producto A** | 50           | 30               | -10          |
+| **Producto B** | 40           | 35               | 5            |
+| **Producto C** | 60           | 20               | -20          |
+
+Si el gerente quiere minimizar pérdidas en caso de fracaso en las ventas, ¿qué producto le recomendaría que lanzase al mercado?
+
+```{r}
+tb2 = crea.tablaX(c(50,30,-10,
+                    40,35,5,
+                    60,20,-20), 3, 3)
+rownames(tb2)=c("Producto 1", "Producto 2", "Producto 3")
+colnames(tb2)=c("Alta demanda", "Demanda moderada","Baja demanda")
+tb2
+```
+
+```{r}
+(sol2=criterio.Todos(tb2, 0.5, T))
+```
+
+La mejor opción sería lanzar al mercado el producto 2, pues es la alternativa óptima en 3 de los 6 criteriors (Wald, Hurwicz y Laplace), lo que nos indica que en caso de que las ventas no sean un éxito, seguiría habiendo beneficio aunque sea algo escaso. Además es el producto que da un mayor beneficio en caso de que la demanda no sea ni alta ni baja, por lo que es un producto que ofrece una gran seguridad.
