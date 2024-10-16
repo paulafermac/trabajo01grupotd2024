@@ -157,5 +157,31 @@ pagos_problema2 <- matrix(c(200, 50, 150, 80, 0, 0),
 
 
 
+# PABLO GONZÁLEZ GÓMEZ
+
+## Problema 1
+
+Aplicar los criterios de decisión bajo incertidumbre al problema cuya matriz de valores numéricos viene dada en la tabla siguiente:
+
+|        | e1  | e2  | e3  |
+|--------|-----|-----|-----|
+| **d1** | 150 | 90  | 30  |
+| **d2** | 200 | 80  | 10  |
+| **d3** | 250 | 100 | -50 |
+
+## Problema 2
+
+Un gerente de ventas debe decidir qué producto lanzar en el próximo trimestre, pero no sabe cómo se comportará el mercado. Tiene tres opciones de producto: producto A, producto B y producto C. Los escenarios de mercado posibles son: alta demanda, demanda moderada y baja demanda. Dependiendo del comportamiento del mercado, los beneficios de cada producto varían.
+
+La siguiente tabla muestra las ganancias esperadas (en miles de euros) en cada escenario de demanda:
+
+|                | Alta demanda | Demanda moderada | Baja demanda |
+|----------------|--------------|------------------|--------------|
+| **Producto A** | 50           | 30               | -10          |
+| **Producto B** | 40           | 35               | 5            |
+| **Producto C** | 60           | 20               | -20          |
+
+Si el gerente quiere minimizar pérdidas en caso de fracaso en las ventas, ¿qué producto le recomendaría que lanzase al mercado?
+
 
 
